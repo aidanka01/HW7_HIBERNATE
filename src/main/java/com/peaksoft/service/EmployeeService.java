@@ -4,6 +4,7 @@ import com.peaksoft.entity.Employee;
 import com.peaksoft.util.Util;
 import org.hibernate.Session;
 
+import javax.persistence.Query;
 import java.util.List;
 
 public class EmployeeService {
@@ -42,9 +43,11 @@ public class EmployeeService {
     public static void deleteByName(String name) {
         Session session = Util.getSession().openSession();
         session.beginTransaction();
-        session.createQuery("delete from Employee e where e.name =: name").setParameter("name", name);
+        Query query = session.createQuery("DELETE FROM Employee WHERE name =:name").setParameter("name",name);
+        query.executeUpdate();
         session.getTransaction().commit();
         session.close();
+        System.out.println("Successfully deleted all employees with name 'Aza'");
     }
 
 }

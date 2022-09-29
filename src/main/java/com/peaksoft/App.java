@@ -22,14 +22,16 @@ public class App {
         createEmployee(new Employee("Aza", "Ulukov", 28));
 
         // GET age where e.name Aza and age > 20
-        getEmployeeByNameAge();
+        System.out.println(getEmployeeByNameAge());
 
         // UPDATE age where e.name 'Aza' to 18
         updateAge(5, new Employee("Aza", "Umarov", 18));
         updateAge(6, new Employee("Aza", "Ulukov", 18));
 
         // DELETE BY NAME where e.name = 'Aza'
-        EmployeeService.deleteByName("Aza");
+         EmployeeService.deleteByName("Aza");
+
+
 
 
     }
